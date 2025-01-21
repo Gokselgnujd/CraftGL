@@ -15,7 +15,6 @@
     <p>
         creates a simple buffer object that can be displayed on a screen
     </p>
-    
     <h4>window.swapBuffers(this)</h4>
     <p>
         Swaps buffers and drawing the primary one
