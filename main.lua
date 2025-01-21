@@ -19,7 +19,7 @@ function m.createWindow()
         this.secondaryBuffer = temp
         temp = nil
     end
-    function createBufferObject(this,x,y,Sx,Sy,color)
+    function window.createBufferObject(this,x,y,Sx,Sy,color)
         local returnable = {}
 
         xp = false -- true if x is a pixel
