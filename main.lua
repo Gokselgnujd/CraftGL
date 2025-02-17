@@ -10,6 +10,14 @@ local function CreatePixelData(x,y,color)
     return {X=x,Y=y,Color=color}
 end
 
+local function DrawBuffer(buffer)
+    for _,obj in buffer do
+        term.setTextColor(obj.Color)
+        term.setCursorPos(obj.X,obj.Y)
+        term.write("_")
+    end
+end
+
 local function fetchBufferFunctions()
     local list = {}
     
@@ -43,6 +51,9 @@ function m.createWindow()
         this.primaryBuffer = this.secondaryBuffer
         this.secondaryBuffer = temp
         temp = nil
+    end
+    function addToBuffer(Data,buffer)
+        buffer.append(Data)
     end
     function window.createBufferObject(this,x,y,Sx,Sy,color)
         local returnable = {}
@@ -82,3 +93,4 @@ function m.isTrue(v)
 end
 
 return m
+
