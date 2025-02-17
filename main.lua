@@ -1,5 +1,30 @@
 local m = {}
 
+local m.Vector2 = {}
+
+function m.Vector2.New(X,Y)
+    return {x = X, y = Y}
+end
+
+local function CreatePixelData(x,y,color)
+    return {X=x,Y=y,Color=color}
+end
+
+local function fetchBufferFunctions()
+    local list = {}
+    
+    function list.PQuad(this,x,y,Sx,Sy,color)
+        if x<0 or y<0 or Sx<0 or Sy<0 then return end
+        local pixels = {}
+        for X=1,Sx do
+            for X=1,Sy do
+                list[#list+1] = CreatePixelData(x+X,y+Y,color)
+            end
+        end
+    end
+    return list
+end
+
 function checkIfTable(v)
     x=1+v -- must be called in pcall
 end

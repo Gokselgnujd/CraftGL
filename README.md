@@ -11,7 +11,7 @@
     </p>
     <h2>Documentation</h2>
     <h3>buffers</h3>
-    <h4>window.createBufferObject(window,x,y,Sx,Sy,color)</h4>
+    <h4>window.PQuad(this,x,y,Sx,Sy,color)</h4>
     <p>
         creates a simple buffer object that can be displayed on a screen
     </p>
@@ -23,5 +23,7 @@
     <p>
         clears the primary buffer
     </p>
+    </h2>Credits</h2>
+    <p>Gokselgnujd : main programmer</p>
 </body>
 </html>
