@@ -10,6 +10,18 @@
         CraftGL is an graphics library made for craft os
     </p>
     <h2>Documentation</h2>
+    <h3>Shaders</h3>
+    <p>
+    A shader is a function with the arguments of X,Y
+    It can be used to create complex thing
+    exampleshader
+    "
+    function shader(X,Y)
+        if X == 10 then return colors.red end
+        return colors.rgb(x+y,x*y,x+y*x)
+    end
+    "
+    </p>
     <h3>buffers</h3>
     <h4>window.PQuad(this,x,y,Sx,Sy,color)</h4>
     <p>
