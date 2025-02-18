@@ -30,6 +30,15 @@ local function fetchBufferFunctions()
             end
         end
     end
+    function list.PQuadShader(this,x,y,Sx,Sy,ShaderFunc)
+        if x<0 or y<0 or Sx<0 or Sy<0 and ShaderFunc ~= nil then return end
+        local pixels = {}
+        for X=1,Sx do
+            for Y=1,Sy do
+                list[#list+1] = CreatePixelData(x+X,y+Y,ShaderFunc(X,Y))
+            end
+        end
+    end
     return list
 end
 
@@ -55,7 +64,7 @@ function m.createWindow()
     function addToBuffer(Data,buffer)
         buffer.append(Data)
     end
-    function window.createBufferObject(this,x,y,Sx,Sy,color)
+    function window.createPixel(this,x,y,color)
         local returnable = {}
 
         xp = false -- true if x is a pixel
@@ -74,11 +83,9 @@ function m.createWindow()
             this.logs[#logs+1] = "creating buffer with Sy being 1 pixel"
         end
         -- Sx Sy checked
-        returnable.x=x
-        returnable.y=y
-        returnable.Sy=Sy
-        returnable.Sx=Sx
-        returnable.clr=color
+        returnable.X=x
+        returnable.Y=y
+        returnable.Color=color
     end
 end
 
