@@ -14,14 +14,11 @@
     <p>
     A shader is a function with the arguments of X,Y
     It can be used to create complex thing
-    exampleshader
-    "
-    function shader(X,Y)
-        if X == 10 then return colors.red end
-        return colors.rgb(x+y,x*y,x+y*x)
-    end
-    "
-    </p>
+    exampleshader  </p>
+    <p>1|function shader(X,Y)</p>
+    <p>2|    if X == 10 then return colors.red end</p>
+    <p>3|    return colors.rgb(x+y,x*y,x+y*x)</p>
+    <p>4|end</p>
     <h3>buffers</h3>
     <h4>window.PQuad(this,x,y,Sx,Sy,color)</h4>
     <p>
