@@ -3,7 +3,7 @@ local m = {}
 local m.Vector2 = {}
 
 function m.Vector2.New(X,Y)
-    return {x = X, y = Y}
+    local r = {x = X, y = Y}
 end
 
 local function CreatePixelData(x,y,color)
@@ -39,6 +39,13 @@ local function fetchBufferFunctions()
             end
         end
     end
+    function list.CreateText(Text,x,y,Color)
+        if Text==nil or x<0 or y<0 or color== nil then return end
+
+    end
+    function list.setBackgroundColor(color)
+        term.setBackgroundColor(color)
+    end
     return list
 end
 
@@ -61,32 +68,10 @@ function m.createWindow()
         this.secondaryBuffer = temp
         temp = nil
     end
-    function addToBuffer(Data,buffer)
+    function window.addToBuffer(Data,buffer)
         buffer.append(Data)
     end
-    function window.createPixel(this,x,y,color)
-        local returnable = {}
-
-        xp = false -- true if x is a pixel
-        yp = false -- same as xp
-
-        if pcall(checkIfTable(Sx)) then
-            xp = false
-        else
-            xp = true
-            this.logs[#logs+1] = "creating buffer with Sx being 1 pixel"
-        end
-        if pcall(checkIfTable(Sy)) then
-            yp = false
-        else
-            yp = true
-            this.logs[#logs+1] = "creating buffer with Sy being 1 pixel"
-        end
-        -- Sx Sy checked
-        returnable.X=x
-        returnable.Y=y
-        returnable.Color=color
-    end
+    buffer.append(fetchBufferFunctions())
 end
 
 function m.isTrue(v)
